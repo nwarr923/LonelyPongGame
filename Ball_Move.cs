@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Ball_Move : MonoBehaviour
 {
-
     private Rigidbody2D rb2d;
     public float speed = 5f;
 
+    // Gives ball velocity and random direction
     void GoBall()
     {
         rb2d.constraints = RigidbodyConstraints2D.None;
@@ -32,6 +32,7 @@ public class Ball_Move : MonoBehaviour
         Invoke("GoBall", 2f);
     }
 
+    // Sets ball back to starting position and sets speed back to default value
     void ResetBall()
     {
         rb2d.velocity = new Vector2(0, 0);
@@ -41,6 +42,7 @@ public class Ball_Move : MonoBehaviour
         Invoke("GoBall", 1f);
     }
 
+    // Calculate the direction the ball will bounce when hitting paddle
     float HitFactor(Vector2 ballPos, Vector2 paddlePos, float paddleHeight)
     {
         float bounceDir = 1;
@@ -51,6 +53,7 @@ public class Ball_Move : MonoBehaviour
         return bounceDir;
     }
 
+    // Kills the ball, takes away one life, and resets the ball position
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "KillBound")
@@ -62,10 +65,10 @@ public class Ball_Move : MonoBehaviour
         }
     }
 
+    // Angle the ball on every collision.
     void OnCollisionEnter2D(Collision2D col)
     {
-
-        // Angle the ball on every collision.
+        // Hit the left paddle
         if (col.gameObject.name == "LeftPaddle")
         {
             GetComponent<AudioSource>().Play();
@@ -87,7 +90,7 @@ public class Ball_Move : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = dir * speed;
         }
 
-        // Hit the right Racket?
+        // Hit the right paddle
         if (col.gameObject.name == "RightPaddle")
         {
             GetComponent<AudioSource>().Play();

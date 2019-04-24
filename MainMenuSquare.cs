@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿// This is used for the design aesthetic of the main menu and the moving squares
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

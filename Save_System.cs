@@ -26,6 +26,7 @@ public class Save_System : MonoBehaviour
         }
     }
 
+    // Save data to local destination
     public void SaveData()
     {
         BinaryFormatter BinForm = new BinaryFormatter();
@@ -38,6 +39,7 @@ public class Save_System : MonoBehaviour
         file.Close();
     }
 
+    // load data from local destination
     public void LoadData()
     {
         if (File.Exists (Application.persistentDataPath + "/gameInfo.dat"))

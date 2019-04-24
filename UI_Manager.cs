@@ -19,7 +19,8 @@ public class UI_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // Pause the game
+        if (Input.GetKeyDown(KeyCode.Escape) || (Input.GetKeyDown(KeyCode.P)))
         {
             if (Time.timeScale == 1)
             {
@@ -34,16 +35,19 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    // Load scene based on passed in name
     public void SceneLoad(string SceneToLoad)
     {
         SceneManager.LoadScene(SceneToLoad);
     }
 
+    // Exit the game
     public void ExitGame()
     {
         Application.Quit();
     }
 
+    // Pause and unpause game, show and hide pause menu
     public void PauseControl()
     {
         if (Time.timeScale == 1)
@@ -59,6 +63,7 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    // Show paused UI elements
     public void ShowPaused()
     {
         foreach (GameObject g in pausedObjects)
@@ -67,6 +72,7 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    // Hide paused UI elements
     public void HidePaused()
     {
         foreach (GameObject g in pausedObjects)

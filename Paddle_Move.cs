@@ -16,6 +16,7 @@ public class Paddle_Move : MonoBehaviour {
         PaddleMove();
 	}
 
+    // Inputs and movement for paddles
     void PaddleMove()
     {
         //Controls
@@ -50,9 +51,6 @@ public class Paddle_Move : MonoBehaviour {
             {
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             }
-
-            /* rightMoveY = Input.GetAxis("Vertical");
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, rightMoveY * paddleSpeed); */
         }
     }
 }

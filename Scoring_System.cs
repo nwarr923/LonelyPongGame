@@ -34,19 +34,14 @@ public class Scoring_System : MonoBehaviour {
         hitStreak.gameObject.GetComponent<Text>().text = ("Hit Streak: " + consecutiveHits);
     }
 
+    // Goes to game over screen and pauses game
     void RestartGame()
     {
         Time.timeScale = 0;
         ShowGameOver();
-        
-        /*else if (Time.timeScale == 0)
-        {
-            Debug.Log("high");
-            Time.timeScale = 1;
-            HideGameOver();
-        }*/
     } 
 
+    // Show game over UI elements
     public void ShowGameOver()
     {
         foreach (GameObject g in gameOverObjects)
@@ -55,6 +50,7 @@ public class Scoring_System : MonoBehaviour {
         }
     }
 
+    // Hide game over UI elements
     public void HideGameOver()
     {
         foreach (GameObject g in gameOverObjects)
@@ -63,6 +59,7 @@ public class Scoring_System : MonoBehaviour {
         }
     }
 
+
     public void LoseLives(string lifeNumber)
     {
         livesRemaining = GameObject.Find(lifeNumber);
@@ -70,6 +67,7 @@ public class Scoring_System : MonoBehaviour {
         consecutiveHits = 0;
     }
 
+    // Add to score and consecutive hits
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "LeftPaddle" || col.gameObject.tag == "RightPaddle")
@@ -79,6 +77,7 @@ public class Scoring_System : MonoBehaviour {
         }
     }
 
+    // Lose lives when ball hits kill boundary and restart game when lives hits 0
     void OnTriggerEnter2D(Collider2D trig)
     {
         // CountScore();

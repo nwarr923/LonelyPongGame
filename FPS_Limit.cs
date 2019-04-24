@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿// Used during testing to keep fps at 60
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
