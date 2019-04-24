@@ -1,3 +1,4 @@
 # LonelyPongGame
 A work in progress game I have created using Unity and C#. 
-Only the C# files are in the repository as of now. When the game is finished, I will upload everything into the repository
+The game loop is currently closed, but additional functionality like high scores, stats page, and more UI elements will be added.
+To play the game, download the LonelyPongEXE zip file and launch the executable.
